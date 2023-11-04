@@ -1,18 +1,28 @@
 <?php
-include 'conexao.php';
+include_once 'conexao.php';
+
+/**
+ * Global variable.
+* @var global $conexao  
+* */
+global $conexao;
+    
 
 if (isset($_POST['submit'])) {
+    # i think, it is better to write all code in english 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $celular = $_POST['celular'];
     $senha = $_POST['senha'];
-
-    $sql = "INSERT INTO `crud` (nome, email, celular, senha) 
-            VALUES ('$nome', '$email', '$celular', '$senha')";
-
-    $resultado = mysqli_query($conexao, $sql);
-    if (!$resultado) {
-        die(mysqli_error($conexao));
+    $sql = "INSERT INTO `crud` (nome, email, celular, senha) VALUES ('$nome', '$email', '$celular', '$senha')";
+    
+    try {
+        mysqli_query($conexao, $sql);
+        # please, all files & codes in english 
+        header("Location: /exibir.php");
+    } 
+    catch (Exception $ex) {
+        throw new Exception("Error Processing Request", 1);
     }
 }
 ?>
@@ -31,7 +41,7 @@ if (isset($_POST['submit'])) {
 <body>
     <h1 class="text-center p-3">Cadastre-se</h1>
     <div class="container">
-        <form action="exibir.php" method="post">
+        <form method="post">
             <div class="mb-4">
                 <label>Nome</label>
                 <input type="text" class="form-control" name="nome" placeholder="Seu nome">
