@@ -52,7 +52,11 @@
                 </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-primary my-4 col-4 mx-auto d-block"><a href="usuario.php" class="text-light text-decoration-none">Novo cadastro</a></button>
+        <a href="usuario.php" class="text-light text-decoration-none">
+            <button type="button" class="btn btn-primary my-4 col-4 mx-auto d-block">
+                Novo cadastro
+        </button>
+        </a>
     </div>
     
 </body>
