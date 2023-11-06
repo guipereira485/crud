@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     $celular = $_POST['celular'];
     $senha = $_POST['senha'];
 
-    $sql = "UPDATE `crud` SET id=$id, nome=$nome, email='$email', celular='$celular', senha='$senha' WHERE id=$id";
+    $sql = "UPDATE `crud` SET id=$id, nome='$nome', email='$email', celular='$celular', senha='$senha' WHERE id=$id";
 
     $resultado = mysqli_query($conexao, $sql);
     if (!$resultado) {
